@@ -422,10 +422,12 @@ services:
 <li><code>DB_PASS</code>                   - Database password</li>
 <li><code>DB_PORT</code>                   - Database port (5432, 3306, &hellip;)</li>
 <li><code>DB_DATABASE</code>               - Database connection&rsquo;s database name</li>
+<li><code>DB_DSN</code>                    - Database DSN string (<a href="https://www.php.net/manual/en/ref.pdo-pgsql.connection.php" target="_blank">postgres</a>, <a href="https://github.com/go-sql-driver/mysql#dsn-data-source-name" target="_blank">mysql</a>, <a href="https://www.sqlite.org/inmemorydb.html" target="_blank">sqlite</a>)</li>
+<li><code>READ_ONLY</code>                 - Run in a read only mode, this will not create, update, or delete records (false)</li>
 <li><code>POSTGRES_SSLMODE</code>          - Enable <a href="https://www.postgresql.org/docs/9.1/libpq-ssl.html" target="_blank">Postgres SSL Mode</a> &lsquo;ssl_mode=VALUE&rsquo; (enable/disable/verify-full/verify-ca)</li>
 <li><code>MAX_OPEN_CONN</code>             - Set <a href="https://golang.org/pkg/database/sql/#DB.SetMaxOpenConns" target="_blank">Maximum Open Connections</a> for database server (default: 25)</li>
 <li><code>MAX_IDLE_CONN</code>             - Set <a href="https://golang.org/pkg/database/sql/#DB.SetMaxIdleConns" target="_blank">Maximum Idle Connections</a> for database server (default: 25)</li>
-<li><code>MAX_LIFE_CONN</code>             - Set <a href="https://golang.org/pkg/database/sql/#DB.SetConnMaxLifetime" target="_blank">Maximum Life Connections</a> for database server (default: 25)</li>
+<li><code>MAX_LIFE_CONN</code>             - Set <a href="https://golang.org/pkg/database/sql/#DB.SetConnMaxLifetime" target="_blank">Maximum Life Connections</a> for database server (default: 5 minutes)</li>
 <li><code>PREFIX</code> - Add a prefix string to each Prometheus metric (default is empty)</li>
 </ul>
 
@@ -462,6 +464,10 @@ services:
 
 <li><p><code>USE_ASSETS</code>                - Automatically use assets from &lsquo;assets folder&rsquo; (true/false)</p></li>
 </ul>
+
+<blockquote>
+<p>If you have issues with Statping not loading frontend files, delete the assets folder and reboot.</p>
+</blockquote>
 
 <h3>Automatic Fills</h3>
 
@@ -1545,8 +1551,8 @@ systemctl start statping
 <p>You can even run Statping on your Raspberry Pi by installing the precompiled binary from <a href="https://github.com/statping/statping/releases/latest" target="_blank">Latest Releases</a>. For the Raspberry Pi 3 you&rsquo;ll want to download the <code>statping-linux-arm7.tar.gz</code> file. Be sure to change <code>VERSION</code> to the latest version in Releases, and include the &lsquo;v&rsquo;.</p>
 
 <pre><code>VERSION=$(curl -sL &quot;https://github.com/statping/statping/releases/latest&quot; | grep -o 'tag/[v.0-9]*' | awk -F/ '{print $2}' | head -n1)
-wget https://github.com/statping/statping/releases/download/$VERSION/statping-linux-arm7.tar.gz
-tar -xvzf statping-linux-arm7.tar.gz
+wget https://github.com/statping/statping/releases/download/$VERSION/statping-linux-arm-7.tar.gz
+tar -xvzf statping-linux-arm-7.tar.gz
 chmod +x statping
 mv statping /usr/local/bin/statping
 
@@ -2275,7 +2281,7 @@ OluFxewsEO0QNDrfFb+0gnjYlnGqOFcZjUMXbDdY5oLSPtXohynuTK1qyQ==
 </div>
 
 <div class="text-center small text-dim" v-pre>
-Automatically generated from Statping's Wiki on 2020-09-09 01:24:21.649582 &#43;0000 UTC
+Automatically generated from Statping's Wiki on 2020-09-16 07:09:55.218598 &#43;0000 UTC
 </div>
 
 </div>
