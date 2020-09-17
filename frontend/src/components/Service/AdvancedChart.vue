@@ -40,7 +40,7 @@
           expanded_data: null,
           main_chart_options: {
             noData: {
-              text: "Loading...",
+              text: undefined,
               align: 'center',
               verticalAlign: 'middle',
               offsetX: 0,

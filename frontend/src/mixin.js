@@ -163,7 +163,8 @@ export default Vue.mixin({
       if (service === undefined || this.isEmptyObject(service)) {
         return `/service/0`
       }
-      let link = service.permalink ? service.permalink : service.id
+      // let link = service.permalink ? service.permalink : service.id
+      let link = service.id // using id instead of permalink to avoid 404 error
       return `/service/${link}`
     },
     isEmptyObject(obj) {

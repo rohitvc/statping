@@ -527,7 +527,6 @@ export default {
             this.uptime_data = this.parse_uptime(uptime);
         },
         parse_uptime (timedata) {
-            console.log(timedata);
             if (timedata.error) {
                 return [ { data: [] } ];
             }
